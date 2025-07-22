@@ -43,6 +43,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
             title: `Only ${getQuantity} quantity can be added for this item`,
             variant: "destructive",
           });
+          
 
           return;
         }
@@ -56,6 +57,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
       })
     ).then((data) => {
       if (data?.payload?.success) {
+         handleDialogClose();
         dispatch(fetchCartItems(user?.id));
         toast({
           title: "Product is added to cart",
